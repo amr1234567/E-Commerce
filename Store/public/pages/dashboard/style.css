@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 3rem;
+    padding: 1rem 5rem;
+    position: fixed;
+    top: 0;
+    background-color: #332e33;
+    width: 100%;
+}
+
+.link-to-site,
+.link-to-add-product {
+    width: 7rem;
+    height: 3rem;
+    border-radius: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.link-to-site>a,
+.link-to-add-product>a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.link-to-site:hover,
+.link-to-add-product:hover{
+    transform: scale(1.03);
+}
+
+.link-to-site{
+    background-color: black;
+}
+
+.link-to-add-product{
+    background-color: blue;
+}
+
+main {
+    margin-top: 5rem;
+    width: 100%;
+    background-color: #5f5660;
+}
+
+.container {
+    width: 95%;
+    display: flex;
+    gap: 3%;
+    flex-wrap: wrap;
+    margin: 0rem auto;
+    padding-top: 2rem;
+}
+
+.box {
+    padding: 1rem;
+    width: 30%;
+    display: flex;
+    background-color: #afb1b3;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.box-image {
+    max-width: 90%;
+    border-radius: 20px;
+    border: 1px solid black;
+    height: 60%;
+}
+
+.name {
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.delete-button,
+.edit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 2rem;
+    outline: none;
+    border: none;
+    transition: 0.3s ease-in-out;
+    border-radius: 1rem;
+}
+
+.delete-button a,
+.edit-button a {
+    color: white;
+    text-decoration: none;
+}
+
+.delete-button:hover,
+.edit-button:hover {
+    transform: scale(1.07);
+}
+
+.delete-button {
+    background-color: red;
+}
+
+.edit-button {
+    background-color: blue;
+}
+
+
+.copyRight{
+    width: 100%;
+    text-align: center;
+    background-color: #332e33;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    height: 3rem;
+    padding: 0.5rem;
+}

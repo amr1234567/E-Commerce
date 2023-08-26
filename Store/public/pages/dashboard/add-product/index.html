@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <div class="form">
+            <div class="grid">
+                <label for="name" style="grid-area: 1/1/2/2;">Name</label>
+                <input type="text" name="name" id="name" autofocus style="grid-area: 1/2/2/3;">
+                <label for="size" style="grid-area: 2/1/3/2;">Size</label>
+                <input type="text" name="size" id="size" style="grid-area: 2/2/3/3;">
+                <label for="price" style="grid-area: 3/1/4/2;">Price</label>
+                <input type="number" name="price" id="price" style="grid-area: 3/2/4/3;">
+                <label for="rating" style="grid-area: 4/1/5/2;">Rating</label>
+                <input type="number" name="rating" id="rating" style="grid-area: 4/2/5/3;">
+            </div>
+            <span>Brand</span>
+            <div class="brand">
+                <label for="Gucci">Gucci</label>
+                <input type="radio" name="brand" id="Gucci">
+
+                <label for="Addidas">Addidas</label>
+                <input type="radio" name="brand" id="Addidas">
+
+                <label for="Zara">Zara</label>
+                <input type="radio" name="brand" id="Zara">
+
+                <label for="Puma">Puma</label>
+                <input type="radio" name="brand" id="Puma">
+
+                <label for="H&M">H&M</label>
+                <input type="radio" name="brand" id="H&M">
+
+                <label for="Tommy">Tommy</label>
+                <input type="radio" name="brand" id="Tommy">
+
+                <label for="Nike">Nike</label>
+                <input type="radio" name="brand" id="Nike">
+
+                <label for="others">others</label>
+                <input type="radio" name="brand" id="others"><br>
+            </div>
+            <span>Category</span>
+            <div class="category">
+                <label for="Men">Men</label>
+                <input type="checkbox" name="category" id="Men">
+                <label for="Women">Women</label>
+                <input type="checkbox" name="category" id="Women">
+                <label for="Children">Children</label>
+                <input type="checkbox" name="category" id="Children"><br>
+            </div>
+            <div class="imge-upload">
+                <input type="file" name="avatar" id="imge" >
+            </div>
+            <button>Submit</button>
+        </div>
+    </main>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>
