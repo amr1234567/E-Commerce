@@ -66,7 +66,7 @@ let createProducts = (i = 1) => {
         }
         data.then(product => {
             product.forEach(ele => {
-                productsContainer.innerHTML = productsContainer.innerHTML + productBox( ele.category.includes('Men') ? chooseRandomImage(imagesURLMen) : ele.category.includes('Men') ? chooseRandomImage(imagesURLWomen) : chooseRandomImage(imagesURLWomen), ele.name, ele.brand, ele.rating, ele.price, ele._id);
+                productsContainer.innerHTML = productsContainer.innerHTML + productBox(ele.category.includes('Men') ? chooseRandomImage(imagesURLMen) : ele.category.includes('Men') ? chooseRandomImage(imagesURLWomen) : chooseRandomImage(imagesURLWomen), ele.name, ele.brand, ele.rating, ele.price, ele._id);
             })
         })
 
@@ -81,7 +81,7 @@ let createProducts = (i = 1) => {
             return product;
         }).then(product => {
             product.forEach(ele => {
-                productsContainer.innerHTML = productsContainer.innerHTML + productBox( ele.category.includes('Men') ? chooseRandomImage(imagesURLMen) : ele.category.includes('Men') ? chooseRandomImage(imagesURLWomen) : chooseRandomImage(imagesURLWomen), ele.name, ele.brand, ele.rating, ele.price, ele._id);
+                productsContainer.innerHTML = productsContainer.innerHTML + productBox(ele.category.includes('Men') ? chooseRandomImage(imagesURLMen) : ele.category.includes('Men') ? chooseRandomImage(imagesURLWomen) : chooseRandomImage(imagesURLWomen), ele.name, ele.brand, ele.rating, ele.price, ele._id);
             })
         })
 
@@ -112,7 +112,7 @@ let createProducts = (i = 1) => {
             return product;
         }).then(product => {
             product.forEach(ele => {
-                productsContainer.innerHTML = productsContainer.innerHTML + productBox( ele.category.includes('Men') ? chooseRandomImage(imagesURLMen) : ele.category.includes('Men') ? chooseRandomImage(imagesURLWomen) : chooseRandomImage(imagesURLWomen), ele.name, ele.brand, ele.rating, ele.price, ele._id);
+                productsContainer.innerHTML = productsContainer.innerHTML + productBox(ele.category.includes('Men') ? chooseRandomImage(imagesURLMen) : ele.category.includes('Men') ? chooseRandomImage(imagesURLWomen) : chooseRandomImage(imagesURLWomen), ele.name, ele.brand, ele.rating, ele.price, ele._id);
             })
         })
 
@@ -237,14 +237,14 @@ document.addEventListener('click', (ele) => {
         if (document.querySelector('.card-product')) {
             document.querySelectorAll('.card-product').forEach(ele => ele.remove());
         }
-        let data = axios(`/api/v1/products?numericFilters=size<=${(maxSize.value) ? parseFloat(maxSize.value) : ""},size>=${(minSize.value) ? parseFloat(minSize.value) : ""},rating>=${(minRate.value) ? parseFloat(minRate.value) : ""},rating<=${(maxRate.value) ? parseFloat(maxRate.value) : ""},price>=${(minPrice.value) ? parseFloat(minPrice.value) : ""},price<=${(maxPrice.value) ? parseFloat(maxPrice.value) : ""}&brand=${checkBox.id || ""}&name=${name.value || ""}`)
+        let data = axios(`/api/v1/products?numericFilters=size>=${(minSize.value) ? parseFloat(minSize.value) : ""},rating>=${(minRate.value) ? parseFloat(minRate.value) : ""},price<=${(maxPrice.value) ? parseFloat(maxPrice.value) : ""}&brand=${(checkBox) ? checkBox.id : ""}&name=${name.value || ""}`)
             .then((result) => {
                 let product = result['data']['products']
                 console.log(product);
                 return product;
             }).then(product => {
                 product.forEach(ele => {
-                    productsContainer.innerHTML = productsContainer.innerHTML + productBox( ele.category.includes('Men') ? chooseRandomImage(imagesURLMen) : ele.category.includes('Men') ? chooseRandomImage(imagesURLWomen) : chooseRandomImage(imagesURLWomen), ele.name, ele.brand, ele.rating, ele.price, ele._id);
+                    productsContainer.innerHTML = productsContainer.innerHTML + productBox(ele.category.includes('Men') ? chooseRandomImage(imagesURLMen) : ele.category.includes('Men') ? chooseRandomImage(imagesURLWomen) : chooseRandomImage(imagesURLWomen), ele.name, ele.brand, ele.rating, ele.price, ele._id);
                 })
             })
     }
@@ -271,14 +271,14 @@ window.onload = () => {
     })
 };
 
-setTimeout(()=>{
-    document.querySelectorAll('.page-number .circle').forEach((ele,index,arr)=>{
-        ele.addEventListener('click',(event)=>{
+setTimeout(() => {
+    document.querySelectorAll('.page-number .circle').forEach((ele, index, arr) => {
+        ele.addEventListener('click', (event) => {
             if (!ele.classList.contains('special')) {
-                arr.forEach(ele=>ele.classList.remove('special'));
+                arr.forEach(ele => ele.classList.remove('special'));
                 ele.classList.add('special')
                 createProducts(parseInt(ele.textContent));
             }
         })
     })
-},4000)
+}, 4000)
