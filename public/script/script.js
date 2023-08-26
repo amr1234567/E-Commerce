@@ -1,10 +1,12 @@
-let images = [
+let imagesURLWomen = [
     `women/image1.svg`,
     `women/image2.svg`,
     `women/image3.svg`,
     `women/image4.svg`,
     `women/image5.svg`,
     `women/image6.svg`,
+];
+let imagesURLMen = [
     `men/image1.jpg`,
     `men/image2.jpg`,
     `men/image3.jpg`,
@@ -47,7 +49,9 @@ let createStars = (rating) => {
 }
 
 let productsContainer = document.querySelector('.products-container');
-
+let chooseRandomImage = (arr) => {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
 
 let createProducts = (i = 1) => {
     let buttonSelected = document.querySelector('.filter>.btn-dark');
@@ -62,7 +66,7 @@ let createProducts = (i = 1) => {
         }
         data.then(product => {
             product.forEach(ele => {
-                productsContainer.innerHTML = productsContainer.innerHTML + productBox(chooseRandomImage(), ele.name, ele.brand, ele.rating, ele.price, ele._id);
+                productsContainer.innerHTML = productsContainer.innerHTML + productBox( ele.category.includes('Men') ? chooseRandomImage(imagesURLMen) : ele.category.includes('Men') ? chooseRandomImage(imagesURLWomen) : chooseRandomImage(imagesURLWomen), ele.name, ele.brand, ele.rating, ele.price, ele._id);
             })
         })
 
@@ -77,7 +81,7 @@ let createProducts = (i = 1) => {
             return product;
         }).then(product => {
             product.forEach(ele => {
-                productsContainer.innerHTML = productsContainer.innerHTML + productBox(chooseRandomImage(), ele.name, ele.brand, ele.rating, ele.price, ele._id);
+                productsContainer.innerHTML = productsContainer.innerHTML + productBox( ele.category.includes('Men') ? chooseRandomImage(imagesURLMen) : ele.category.includes('Men') ? chooseRandomImage(imagesURLWomen) : chooseRandomImage(imagesURLWomen), ele.name, ele.brand, ele.rating, ele.price, ele._id);
             })
         })
 
@@ -92,7 +96,7 @@ let createProducts = (i = 1) => {
             return product;
         }).then(product => {
             product.forEach(ele => {
-                productsContainer.innerHTML = productsContainer.innerHTML + productBox(chooseRandomImage(), ele.name, ele.brand, ele.rating, ele.price, ele._id);
+                productsContainer.innerHTML = productsContainer.innerHTML + productBox(ele.category.includes('Men') ? chooseRandomImage(imagesURLMen) : ele.category.includes('Men') ? chooseRandomImage(imagesURLWomen) : chooseRandomImage(imagesURLWomen), ele.name, ele.brand, ele.rating, ele.price, ele._id);
             })
         })
 
@@ -108,7 +112,7 @@ let createProducts = (i = 1) => {
             return product;
         }).then(product => {
             product.forEach(ele => {
-                productsContainer.innerHTML = productsContainer.innerHTML + productBox(chooseRandomImage(), ele.name, ele.brand, ele.rating, ele.price, ele._id);
+                productsContainer.innerHTML = productsContainer.innerHTML + productBox( ele.category.includes('Men') ? chooseRandomImage(imagesURLMen) : ele.category.includes('Men') ? chooseRandomImage(imagesURLWomen) : chooseRandomImage(imagesURLWomen), ele.name, ele.brand, ele.rating, ele.price, ele._id);
             })
         })
 
@@ -240,15 +244,13 @@ document.addEventListener('click', (ele) => {
                 return product;
             }).then(product => {
                 product.forEach(ele => {
-                    productsContainer.innerHTML = productsContainer.innerHTML + productBox(chooseRandomImage(), ele.name, ele.brand, ele.rating, ele.price, ele._id);
+                    productsContainer.innerHTML = productsContainer.innerHTML + productBox( ele.category.includes('Men') ? chooseRandomImage(imagesURLMen) : ele.category.includes('Men') ? chooseRandomImage(imagesURLWomen) : chooseRandomImage(imagesURLWomen), ele.name, ele.brand, ele.rating, ele.price, ele._id);
                 })
             })
     }
 })
 
-let chooseRandomImage = () => {
-    return images[Math.floor(Math.random() * images.length)];
-}
+
 
 window.onload = () => {
     createProducts();

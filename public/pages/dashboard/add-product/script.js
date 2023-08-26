@@ -11,9 +11,7 @@ document.querySelector('button').addEventListener('click', async () => {
     validatePrice()
     validateRating()
     validateSize()
-    validateFileType()
-    if (validateBrand() === 1 && validateCategory() === 1 && validateName() === 1 &&
-        validatePrice() === 1 && validateRating() === 1 && validateSize() === 1 && validateFileType() === 1) {
+    if (validateBrand() === 1 && validateCategory() === 1 && validateName() === 1 && validatePrice() === 1 && validateRating() === 1 && validateSize() === 1) {
 
         await axios.post(`/api/v1/products`, {
             name: nameInput.value,
